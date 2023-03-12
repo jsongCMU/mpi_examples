@@ -19,7 +19,7 @@ CXX = mpic++
 .SUFFIXES:
 .PHONY: all clean
 
-all: hello_world.o basic_comms.o mpi_scatter.o mpi_gather.o mpi_allgather.o mpi_allgatherv.o mpi_bcast.o
+all: hello_world.o basic_comms.o mpi_scatter.o mpi_gather.o mpi_allgather.o mpi_allgatherv.o mpi_bcast.o vector_test.o
 
 hello_world.o: hello_world.cpp
 	$(CXX) -o $@ $(CFLAGS) hello_world.cpp
@@ -41,6 +41,9 @@ mpi_allgatherv.o: mpi_allgatherv.cpp
 
 mpi_bcast.o: mpi_bcast.cpp
 	$(CXX) -o $@ $(CFLAGS) mpi_bcast.cpp
+
+vector_test.o: vector_test.cpp
+	$(CXX) -o $@ $(CFLAGS) vector_test.cpp
 
 clean:
 	rm *.o
